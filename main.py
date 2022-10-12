@@ -117,6 +117,12 @@ def main():
     counter=0
     KeyPress= collections.namedtuple('KeyPress',["requested","received","duration"])
     inputlist=[]
+
+    if timed_run_flag:
+        print("Test running up to "+max_value+" seconds.")
+    else:
+        print("Test running up to "+ max_value+" inputs.")
+        
     print("Press any key to start the test")
     
     readchar.readkey() #inicialização do teste
