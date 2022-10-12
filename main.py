@@ -119,9 +119,9 @@ def main():
     inputlist=[]
 
     if timed_run_flag:
-        print("Test running up to "+max_value+" seconds.")
+        print("Test running up to "+ str(max_value)+" seconds.")
     else:
-        print("Test running up to "+ max_value+" inputs.")
+        print("Test running up to "+ str(max_value)+" inputs.")
         
     print("Press any key to start the test")
     
