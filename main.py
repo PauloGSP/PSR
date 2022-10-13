@@ -71,12 +71,19 @@ def generate_report(inputlist,timer,test_start,test_end):
             miss_counter +=1
             type_miss_total_duration+=i.duration
         type_total_duration+=i.duration
+    
     accuracy=hit_counter/len(inputlist)
     test_duration=timer
     test_end=test_end
     test_start=test_start
-    type_miss_average_duration=type_miss_total_duration/miss_counter
-    type_hit_average_duration=type_hit_total_duration/hit_counter
+    if miss_counter==0: 
+        type_miss_average_duration=0
+    else:
+        type_miss_average_duration=type_miss_total_duration/miss_counter
+    if hit_counter==0:
+        type_hit_average_duration=0
+    else:
+        type_hit_average_duration=type_hit_total_duration/hit_counter
     type_average_duration= type_total_duration/len(inputlist)
 
     #Geração do dicionario final
