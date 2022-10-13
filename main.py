@@ -34,15 +34,15 @@ def gen_key():
             print("Invalid key press, try again. Please use only characters")
 
     if key==randnum:
-        print("You typed key "+Fore.GREEN+chr(key)+Style.RESET_ALL)
+        print("You typed key "+Fore.GREEN+chr(key)+Style.RESET_ALL+". Right answer!")
         
     elif key==32:
         sys.exit()
     
     else:
-        print("You typed key "+Fore.RED+chr(key)+Style.RESET_ALL)
+        print("You typed key "+Fore.RED+chr(key)+Style.RESET_ALL+". Wrong answer!")
 
-    I= KeyPress(chr(randnum),chr(key),time.time()-start)
+    I= Input(chr(randnum),chr(key),time.time()-start)
     return I
 
 def define_args():
@@ -99,7 +99,7 @@ def generate_report(inputlist,timer,test_start,test_end):
 
 
 def main():
-    global KeyPress
+    global Input
     args=define_args()
     print(vars(args))
     #Verificar a existência de argumentos
@@ -115,7 +115,7 @@ def main():
     
 
     counter=0
-    KeyPress= collections.namedtuple('KeyPress',["requested","received","duration"])
+    Input= collections.namedtuple('Input',["requested","received","duration"])
     inputlist=[]
 
     if timed_run_flag:
@@ -125,8 +125,8 @@ def main():
         
     print("Press any key to start the test")
     
-    readchar.readkey() #inicialização do teste
-    
+    key=readchar.readkey() #inicialização do teste
+    if ord(key)==32:sys.exit()
     startgentimer= time.time()
     test_start=time.strftime("%a, %b %d %Y %H:%M:%S %Y")
 
